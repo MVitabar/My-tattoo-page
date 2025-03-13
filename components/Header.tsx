@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Instagram, Mail, Phone, MapPin, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,9 +28,16 @@ export default function Header() {
       } border-b border-zinc-800`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-4">
+          <Image
+            src="/assets/logo.jpg"
+            alt="TOP SECRET TATTOO Logo"
+            width={40}
+            height={40}
+            className="rounded-full"
+          />
           <h1 className="text-2xl text-lightText font-bold tracking-tighter">
-            MARTIN VITABAR
+            TOP SECRET
             <span className="text-red-500 ml-1">TATTOO</span>
           </h1>
         </div>

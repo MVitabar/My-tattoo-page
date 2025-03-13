@@ -1,10 +1,15 @@
 "use client"
 
 import type React from "react"
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Calendar, Clock } from "lucide-react"
+import { Calendar, Clock, Upload, X } from "lucide-react"  // Añadido X a las importaciones
+
+// Add this type after the imports
+type FileWithPreview = {
+  file: File;
+  preview: string;
+}
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,6 +22,8 @@ export default function ContactForm() {
     descricao: "",
   })
 
+  // Update the state type
+  const [selectedFiles, setSelectedFiles] = useState<FileWithPreview[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitSuccess, setSubmitSuccess] = useState(false)
   const [focusedField, setFocusedField] = useState<string | null>(null)
@@ -24,6 +31,39 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || [])
+    
+    // Create previews for new files
+    const newFiles = files.map(file => ({
+      file,
+      preview: URL.createObjectURL(file)
+    }))
+    
+    // Update state with max 3 files
+    setSelectedFiles(prev => {
+      const updated = [...prev, ...newFiles].slice(0, 3)
+      return updated
+    })
+  }
+
+  // Add cleanup function for previews
+  useEffect(() => {
+    return () => {
+      // Cleanup previews on unmount
+      selectedFiles.forEach(file => URL.revokeObjectURL(file.preview))
+    }
+  }, [selectedFiles])
+
+  // Update removeFile function
+  const removeFile = (index: number) => {
+    setSelectedFiles(prev => {
+      const file = prev[index]
+      URL.revokeObjectURL(file.preview)
+      return prev.filter((_, i) => i !== index)
+    })
   }
 
   const handleFocus = (name: string) => {
@@ -34,18 +74,38 @@ export default function ContactForm() {
     setFocusedField(null)
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulação de envio de formulário
-    setTimeout(() => {
-      setIsSubmitting(false)
-      setSubmitSuccess(true)
+    try {
+      const formDataWithFiles = new FormData();
+      
+      // Añade los campos del formulario
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataWithFiles.append(key, value);
+      });
 
-      // Resetar o formulário depois de 3 segundos
+      // Añade los archivos
+      selectedFiles.forEach((fileWithPreview, index) => {
+        formDataWithFiles.append(`file${index}`, fileWithPreview.file);
+      });
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: formDataWithFiles,
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Erro ao enviar formulário');
+      }
+
+      setSubmitSuccess(true);
+      
       setTimeout(() => {
-        setSubmitSuccess(false)
+        setSubmitSuccess(false);
         setFormData({
           nome: "",
           email: "",
@@ -54,10 +114,20 @@ export default function ContactForm() {
           hora: "",
           estilo: "",
           descricao: "",
-        })
-      }, 3000)
-    }, 1500)
-  }
+        });
+        setSelectedFiles([]);
+      }, 3000);
+    } catch (error) {
+      console.error('Erro:', error);
+      if (error instanceof Error) {
+        alert(error.message || 'Erro ao enviar formulário. Tente novamente.');
+      } else {
+        alert('Erro ao enviar formulário. Tente novamente.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="bg-zinc-800 text-lightText p-6 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-red-500/20">
@@ -237,6 +307,63 @@ export default function ContactForm() {
                 focusedField === "descricao" ? "border-red-500 shadow-lg shadow-red-500/20" : ""
               }`}
             ></textarea>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium mb-1">
+              Referências (máximo 3 imagens)
+            </label>
+            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-zinc-600 border-dashed rounded-md hover:border-red-500 transition-colors duration-300">
+              <div className="space-y-1 text-center">
+                <Upload className="mx-auto h-12 w-12 text-zinc-400" />
+                <div className="flex text-sm text-zinc-400">
+                  <label htmlFor="file-upload" className="relative cursor-pointer rounded-md font-medium text-red-500 hover:text-red-400">
+                    <span>Upload de arquivo</span>
+                    <input
+                      id="file-upload"
+                      name="file-upload"
+                      type="file"
+                      className="sr-only"
+                      accept="image/*"
+                      multiple
+                      onChange={handleFileChange}
+                    />
+                  </label>
+                  <p className="pl-1">ou arraste e solte</p>
+                </div>
+                <p className="text-xs text-zinc-400">
+                  PNG, JPG, GIF até 10MB
+                </p>
+              </div>
+            </div>
+            {selectedFiles.length > 0 && (
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {selectedFiles.map((file, index) => (
+                  <div 
+                    key={index} 
+                    className="relative group bg-zinc-700 rounded-lg overflow-hidden"
+                  >
+                    <img
+                      src={file.preview}
+                      alt={file.file.name}
+                      className="w-full h-32 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <button
+                        type="button"
+                        onClick={() => removeFile(index)}
+                        className="text-white hover:text-red-500 transition-colors"
+                      >
+                        <X size={24} />
+                      </button>
+                    </div>
+                    <p className="text-xs text-zinc-300 truncate p-2 absolute bottom-0 left-0 right-0 bg-black bg-opacity-50">
+                      {file.file.name}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           <Button

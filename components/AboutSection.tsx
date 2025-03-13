@@ -41,7 +41,7 @@ export default function AboutSection() {
             }`}
           >
             <Image
-              src="https://images.unsplash.com/photo-1613195395523-3e9ef0fecaa3?q=80&w=2187&auto=format&fit=crop"
+              src="/assets/profile.png"
               alt="Martin Vitabar Tatuador"
               fill
               className="object-cover"
