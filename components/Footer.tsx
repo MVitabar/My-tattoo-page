@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Instagram, Mail, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl text-white font-bold">
-              MARTIN VITABAR
+              TOP SECRET
               <span className="text-red-500 ml-1">TATTOO</span>
             </h2>
             <p className="text-zinc-400 mt-2">Arte que permanece na sua pele</p>
@@ -30,10 +30,12 @@ const Footer = () => {
               <Mail size={20} />
             </a>
             <a
-              href="tel:+123456789"
+              href="https://wa.me/5553999202033"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-zinc-800 hover:bg-red-500 p-2 rounded-full transition-all duration-300 transform hover:scale-110"
             >
-              <Phone size={20} />
+              <MessageCircle size={20} />
             </a>
           </div>
         </div>

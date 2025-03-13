@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { Instagram, Mail, Phone } from "lucide-react";
+import { Instagram, Mail, MessageCircle } from "lucide-react";
 import ContactForm from "./contact-form";
 
 export default function AboutSection() {
@@ -85,10 +85,12 @@ export default function AboutSection() {
                 <Mail size={24} />
               </a>
               <a
-                href="tel:+123456789"
+                href="https://wa.me/5553999202033"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-zinc-800 hover:bg-red-500 p-3 rounded-full transition-all duration-300 transform hover:scale-110"
               >
-                <Phone size={24} />
+                <MessageCircle size={24} />
               </a>
             </div>
           </div>
