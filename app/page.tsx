@@ -1,36 +1,22 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { useState, useEffect } from "react"
-import MyGallerySection from "@/components/gallery-section"
-import ContactForm from "@/components/contact-form"
-
-import Header from "../components/Header";
-import HeroSection from "../components/HeroSection";
-import AboutSection from "../components/AboutSection";
-import ServicesSection from "../components/ServicesSection";
-import ContactSection from "../components/ContactSection";
-import Footer from "@/components/Footer"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Hero from '../pages/Hero';
+import About from '../pages/About';
+import Gallery from '../pages/Gallery';
+import Services from '../pages/Services';
+import Contact from '../pages/Contact';
 
 export default function Home() {
-  // Animación de fade-in para toda la página
-  const [isLoaded, setIsLoaded] = useState(false)
-
-  useEffect(() => {
-    setIsLoaded(true)
-  }, [])
-
   return (
-    <div
-      className={`min-h-screen bg-black text-white transition-opacity duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}
-    >
-      <Header />
-      <HeroSection />
-      <AboutSection />
-      <MyGallerySection />
-      <ServicesSection />
-      <ContactSection />
-      <Footer />
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Gallery" element={<Gallery />} />
+        <Route path="/Services" element={<Services />} />
+        <Route path="/Contact" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
 }

@@ -51,6 +51,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        lightText: "#E0E0E0", // New color for lighter text
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -95,4 +96,3 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 }
-

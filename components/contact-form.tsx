@@ -60,7 +60,7 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="bg-zinc-800 p-6 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-red-500/20">
+    <div className="bg-zinc-800 text-lightText p-6 rounded-lg shadow-xl transform transition-all duration-500 hover:shadow-red-500/20">
       {submitSuccess ? (
         <div className="text-center py-8 animate-fadeIn">
           <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse">

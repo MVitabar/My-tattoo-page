@@ -26,11 +26,12 @@ export default function HeroSection() {
         <div
           className={`transition-all duration-1000 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <h1 className="text-4xl text-lightText md:text-6xl lg:text-7xl font-bold mb-6">
             ARTE QUE PERMANECE
             <span className="block text-red-500 mt-2">NA SUA PELE</span>
           </h1>
-          <p className="text-xl md:text-2xl text-zinc-300 max-w-2xl mx-auto mb-8">
+<p className="text-xl md:text-2xl text-lightText max-w-2xl mx-auto mb-8">
+
             Designs únicos e personalizados que contam sua história
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

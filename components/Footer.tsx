@@ -14,7 +14,7 @@ const Footer = () => {
             <p className="text-zinc-400 mt-2">Arte que permanece na sua pele</p>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-lightText">
             <a
               href="https://www.instagram.com/martin.vitabar.tattoo/"
               target="_blank"
@@ -38,7 +38,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-zinc-800 text-center text-zinc-500 text-sm">
+        <div className="mt-8 pt-8 border-t border-zinc-800 text-center text-lightText text-sm">
           <p>© {new Date().getFullYear()} Martin Vitabar Tattoo. Todos os direitos reservados.</p>
         </div>
       </div>

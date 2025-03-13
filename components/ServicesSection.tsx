@@ -48,7 +48,7 @@ export default function ServicesSection() {
     <section id="servicos" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
+          className={`text-3xl md:text-4xl font-bold mb-16 text-center text-lightText transition-all duration-700 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -74,7 +74,8 @@ export default function ServicesSection() {
                 />
               </div>
               <h3 className="text-xl font-bold mb-2 text-center">{service.title}</h3>
-              <p className="text-zinc-400 text-center">{service.description}</p>
+<p className="text-lightText text-center">{service.description}</p>
+
             </div>
           ))}
         </div>
@@ -99,7 +100,8 @@ export default function ServicesSection() {
                 <span className="font-bold text-xl">1</span>
               </div>
               <h4 className="text-lg font-bold mb-2">Consulta</h4>
-              <p className="text-zinc-400">Discutimos suas ideias e expectativas para criar o design perfeito.</p>
+<p className="text-lightText">Discutimos suas ideias e expectativas para criar o design perfeito.</p>
+
             </div>
             <div
               className={`bg-zinc-900 p-6 rounded-lg transition-all duration-700 transform ${
@@ -111,7 +113,8 @@ export default function ServicesSection() {
                 <span className="font-bold text-xl">2</span>
               </div>
               <h4 className="text-lg font-bold mb-2">Design</h4>
-              <p className="text-zinc-400">Crio um esboço personalizado baseado em nossas conversas.</p>
+<p className="text-lightText">Crio um esboço personalizado baseado em nossas conversas.</p>
+
             </div>
             <div
               className={`bg-zinc-900 p-6 rounded-lg transition-all duration-700 transform ${
@@ -123,7 +126,8 @@ export default function ServicesSection() {
                 <span className="font-bold text-xl">3</span>
               </div>
               <h4 className="text-lg font-bold mb-2">Sessão</h4>
-              <p className="text-zinc-400">Realizo a tatuagem com máxima atenção aos detalhes e conforto.</p>
+<p className="text-lightText">Realizo a tatuagem com máxima atenção aos detalhes e conforto.</p>
+
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ export default function ContactSection() {
     <section id="contato" className="py-20 bg-zinc-900">
       <div className="container mx-auto px-4">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
+          className={`text-3xl md:text-4xl font-bold mb-16 text-center text-lightText transition-all duration-700 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -45,7 +45,8 @@ export default function ContactSection() {
                 <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Localização</h4>
-                  <p className="text-zinc-300">Rua Principal 123, Cidade</p>
+<p className="text-lightText">Rua Principal 123, Cidade</p>
+
                 </div>
               </div>
 
@@ -53,7 +54,8 @@ export default function ContactSection() {
                 <Phone className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Telefone</h4>
-                  <p className="text-zinc-300">+123 456 789</p>
+<p className="text-lightText">+123 456 789</p>
+
                 </div>
               </div>
 
@@ -61,7 +63,8 @@ export default function ContactSection() {
                 <Mail className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Email</h4>
-                  <p className="text-zinc-300">contato@martinvitabar.com</p>
+<p className="text-lightText">contato@martinvitabar.com</p>
+
                 </div>
               </div>
 
@@ -69,12 +72,13 @@ export default function ContactSection() {
                 <Instagram className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Instagram</h4>
-                  <p className="text-zinc-300">@martin.vitabar.tattoo</p>
+<p className="text-lightText">@martin.vitabar.tattoo</p>
+
                 </div>
               </div>
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 text-lightText">
               <h3 className="text-2xl font-bold mb-4">Horário</h3>
               <div className="space-y-2">
                 <div className="flex justify-between hover:bg-zinc-800 p-2 rounded transition-colors">

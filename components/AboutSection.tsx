@@ -27,7 +27,7 @@ export default function AboutSection() {
     <section id="sobre-mim" className="py-20 bg-zinc-900">
       <div className="container mx-auto px-4">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
+          className={`text-3xl text-lightText md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
@@ -63,12 +63,13 @@ export default function AboutSection() {
               Minha paixão pela arte começou desde cedo, e encontrei na tatuagem a forma perfeita de expressar minha
               criatividade enquanto crio peças significativas que meus clientes levarão para sempre.
             </p>
-            <p className="text-zinc-300 mb-8">
+            <p className="text-lightText mb-8">
+
               Trabalho com os mais altos padrões de higiene e segurança, utilizando equipamentos de primeira qualidade e
               técnicas avançadas para garantir resultados excepcionais.
             </p>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 text-lightText">
               <a
                 href="https://www.instagram.com/martin.vitabar.tattoo/"
                 target="_blank"
