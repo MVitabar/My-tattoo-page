@@ -1,22 +1,35 @@
 "use client";
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Hero from '../pages/Hero';
-import About from '../pages/About';
-import Gallery from '../pages/Gallery';
-import Services from '../pages/Services';
-import Contact from '../pages/Contact';
+import { useEffect, useState } from "react";
+import Navbar from "@/components/Header";
+import Hero from "@/components/HeroSection";
+import GallerySection from "@/components/gallery-section";
+import AboutSection from "@/components/AboutSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+import ServicesSection from "@/components/ServicesSection";
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Hero />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Gallery" element={<Gallery />} />
-        <Route path="/Services" element={<Services />} />
-        <Route path="/Contact" element={<Contact />} />
-      </Routes>
-    </Router>
+    <main>
+      <Navbar />
+      <Hero />
+      <AboutSection />
+      <GallerySection />
+      <ServicesSection />
+      
+      <ContactSection />
+      <Footer />
+    </main>
   );
 }

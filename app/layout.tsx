@@ -3,21 +3,20 @@ import './globals.css'
 import Header from '@/components/Header'
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.dev',
+  title: 'TOP SECRET TATTOO',
+  description: 'TOP SECRET TATTOO - Estúdio de tatuagem profissional',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body>
-        <Header />
-        {children}</body>
+        <div id="root">{children}</div>
+      </body>
     </html>
   )
 }

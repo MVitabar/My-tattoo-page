@@ -1,65 +1,92 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { X, Instagram } from "lucide-react"
 
-// Datos de ejemplo para la galería con imágenes de Unsplash
+// Dados de exemplo para a galeria com imagens de Unsplash
 const galleryImages = [
+  // Preto e Cinza
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1590246814883-57004d01fae7?q=80&w=2070&auto=format&fit=crop",
-    alt: "Tatuagem realista de um leão",
-    category: "realismo",
+    src: "/assets/tattoo1.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1562962230-16e4623d36e6?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem blackwork geométrica",
-    category: "blackwork",
+    src: "/assets/tattoo2.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem neotradicional de uma rosa",
-    category: "neotradicional",
+    src: "/assets/tattoo3.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1542727365-19732a80dcfd?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem realista de um retrato",
-    category: "realismo",
+    src: "/assets/tattoo4.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1543059080-f9b1272213d5?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem blackwork de mandala",
-    category: "blackwork",
+    src: "/assets/tattoo5.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem neotradicional de uma águia",
-    category: "neotradicional",
+    src: "/assets/tattoo6.jpg",
+    alt: "Tatuagem em preto e cinza",
+    category: "preto-e-cinza",
   },
+  // Realismo
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1612459284970-e8f84c153d61?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem realista de natureza",
+    src: "/assets/realismo1.jpg",
+    alt: "Tatuagem realista",
     category: "realismo",
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1581299894341-367e6517569c?q=80&w=1974&auto=format&fit=crop",
-    alt: "Tatuagem blackwork abstrata",
-    category: "blackwork",
+    src: "/assets/realismo2.jpg",
+    alt: "Tatuagem realista",
+    category: "realismo",
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?q=80&w=2376&auto=format&fit=crop",
-    alt: "Tatuagem neotradicional de um lobo",
-    category: "neotradicional",
+    src: "/assets/realismo3.jpg",
+    alt: "Tatuagem realista",
+    category: "realismo",
   },
+  {
+    id: 10,
+    src: "/assets/realismo4.jpg",
+    alt: "Tatuagem realista",
+    category: "realismo",
+  },
+  // Colorido
+  {
+    id: 11,
+    src: "/assets/colorido1.jpg",
+    alt: "Tatuagem colorida",
+    category: "colorido",
+  },
+  {
+    id: 12,
+    src: "/assets/colorido2.jpg",
+    alt: "Tatuagem colorida",
+    category: "colorido",
+  },
+  {
+    id: 13,
+    src: "/assets/colorido3.jpg",
+    alt: "Tatuagem colorida",
+    category: "colorido",
+  }
 ]
 
 export default function GallerySection() {
@@ -69,26 +96,37 @@ export default function GallerySection() {
     alt: string
   }>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const element = document.getElementById("galeria")
-      if (element) {
-        const position = element.getBoundingClientRect()
-        if (position.top < window.innerHeight * 0.75) {
-          setIsVisible(true)
-        }
+  const handleScroll = useCallback(() => {
+    if (!mounted) return
+
+    const element = document.getElementById("galeria")
+    if (element) {
+      const position = element.getBoundingClientRect()
+      if (position.top < window.innerHeight * 0.75) {
+        setIsVisible(true)
       }
     }
+  }, [mounted])
 
+  useEffect(() => {
+    setMounted(true)
     window.addEventListener("scroll", handleScroll)
-    handleScroll() // Verificar al cargar
+    handleScroll()
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [handleScroll])
 
-  const filteredImages =
-    activeFilter === "todos" ? galleryImages : galleryImages.filter((img) => img.category === activeFilter)
+  const filteredImages = activeFilter === "todos" 
+    ? [
+        ...galleryImages.filter(img => img.category === "preto-e-cinza").slice(0, 3),
+        ...galleryImages.filter(img => img.category === "realismo").slice(0, 3),
+        ...galleryImages.filter(img => img.category === "colorido").slice(0, 3)
+      ]
+    : galleryImages.filter((img) => img.category === activeFilter)
 
   return (
     <section id="galeria" className="py-20 bg-black">
@@ -117,6 +155,14 @@ export default function GallerySection() {
               Todos
             </button>
             <button
+              onClick={() => setActiveFilter("preto-e-cinza")}
+              className={`px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
+                activeFilter === "preto-e-cinza" ? "bg-red-500 text-white" : "bg-zinc-800 text-white hover:bg-zinc-700"
+              }`}
+            >
+              Preto e Cinza
+            </button>
+            <button
               onClick={() => setActiveFilter("realismo")}
               className={`px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
                 activeFilter === "realismo" ? "bg-red-500 text-white" : "bg-zinc-800 text-white hover:bg-zinc-700"
@@ -125,20 +171,12 @@ export default function GallerySection() {
               Realismo
             </button>
             <button
-              onClick={() => setActiveFilter("blackwork")}
+              onClick={() => setActiveFilter("colorido")}
               className={`px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
-                activeFilter === "blackwork" ? "bg-red-500 text-white" : "bg-zinc-800 text-white hover:bg-zinc-700"
+                activeFilter === "colorido" ? "bg-red-500 text-white" : "bg-zinc-800 text-white hover:bg-zinc-700"
               }`}
             >
-              Blackwork
-            </button>
-            <button
-              onClick={() => setActiveFilter("neotradicional")}
-              className={`px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 ${
-                activeFilter === "neotradicional" ? "bg-red-500 text-white" : "bg-zinc-800 text-white hover:bg-zinc-700"
-              }`}
-            >
-              Neotradicional
+              Colorido
             </button>
           </div>
         </div>

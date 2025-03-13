@@ -13,7 +13,7 @@ export default function HeroSection() {
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1598971861713-54ad16a7e72e?q=80&w=2376&auto=format&fit=crop"
+          src="/assets/hero-bg.png"
           alt="Arte de tatuagem"
           fill
           className="object-cover opacity-50"
