@@ -132,7 +132,7 @@ export default function GallerySection() {
     <section id="galeria" className="py-20 bg-black">
       <div className="container mx-auto px-4">
         <h2
-          className={`text-3xl md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
+          className={`text-3xl text-lightText md:text-4xl font-bold mb-16 text-center transition-all duration-700 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >

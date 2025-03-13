@@ -73,8 +73,8 @@ export default function ServicesSection() {
                   className="object-cover w-full h-full"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-center">{service.title}</h3>
-<p className="text-lightText text-center">{service.description}</p>
+              <h3 className="text-xl font-bold mb-2 text-center text-gray-300">{service.title}</h3>
+              <p className="text-lightText text-center">{service.description}</p>
 
             </div>
           ))}
@@ -82,7 +82,7 @@ export default function ServicesSection() {
 
         <div className="mt-16 text-center">
           <h3
-            className={`text-2xl font-bold mb-6 transition-all duration-700 transform ${
+            className={`text-2xl font-bold mb-6 transition-all duration-700 transform text-gray-300 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
             style={{ transitionDelay: "400ms" }}
@@ -99,8 +99,8 @@ export default function ServicesSection() {
               <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center mx-auto mb-4 animate-pulse">
                 <span className="font-bold text-xl">1</span>
               </div>
-              <h4 className="text-lg font-bold mb-2">Consulta</h4>
-<p className="text-lightText">Discutimos suas ideias e expectativas para criar o design perfeito.</p>
+              <h4 className="text-lg font-bold mb-2 text-gray-300">Consulta</h4>
+              <p className="text-lightText">Discutimos suas ideias e expectativas para criar o design perfeito.</p>
 
             </div>
             <div
@@ -112,8 +112,8 @@ export default function ServicesSection() {
               <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center mx-auto mb-4 animate-pulse">
                 <span className="font-bold text-xl">2</span>
               </div>
-              <h4 className="text-lg font-bold mb-2">Design</h4>
-<p className="text-lightText">Crio um esboço personalizado baseado em nossas conversas.</p>
+              <h4 className="text-lg font-bold mb-2 text-gray-300">Design</h4>
+              <p className="text-lightText">Crio um esboço personalizado baseado em nossas conversas.</p>
 
             </div>
             <div
@@ -125,8 +125,8 @@ export default function ServicesSection() {
               <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center mx-auto mb-4 animate-pulse">
                 <span className="font-bold text-xl">3</span>
               </div>
-              <h4 className="text-lg font-bold mb-2">Sessão</h4>
-<p className="text-lightText">Realizo a tatuagem com máxima atenção aos detalhes e conforto.</p>
+              <h4 className="text-lg font-bold mb-2 text-gray-300">Sessão</h4>
+              <p className="text-lightText">Realizo a tatuagem com máxima atenção aos detalhes e conforto.</p>
 
             </div>
           </div>
