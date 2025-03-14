@@ -53,7 +53,7 @@ export default function AboutSection() {
               isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
             }`}
           >
-            <h3 className="text-2xl font-bold mb-4">Martin Vitabar</h3>
+            <h3 className="text-2xl text-lightText font-bold mb-4">Martin Vitabar</h3>
             <p className="text-zinc-300 mb-6">
               Com mais de 10 anos de experiência na arte da tatuagem, sou especializado em estilos realistas, blackwork
               e neotradicional. Cada design que crio é único e personalizado, adaptado às histórias e personalidades dos

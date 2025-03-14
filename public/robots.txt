@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://my-tattoo-page-one.vercel.app/sitemap.xml
