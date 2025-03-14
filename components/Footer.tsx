@@ -1,47 +1,95 @@
 import React from 'react';
-import { Instagram, Mail, MessageCircle } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-8 border-t border-zinc-800">
+    <footer className="bg-black text-white py-12">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h2 className="text-xl text-white font-bold">
-              TOP SECRET
-              <span className="text-red-500 ml-1">TATTOO</span>
-            </h2>
-            <p className="text-zinc-400 mt-2">Arte que permanece na sua pele</p>
+        {/* Logo and Brand Section */}
+        <div className="flex flex-col items-center mb-8">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/assets/logo.jpg"
+              alt="TOP SECRET TATTOO Logo"
+              width={60}
+              height={60}
+              className="object-contain rounded-full"
+            />
+            <span className="text-2xl text-lightText font-bold">
+              TOP SECRET <span className="text-red-500">TATTOO</span>
+            </span>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-xl font-bold mb-4">Contato</h3>
+            <div className="space-y-2">
+              <p className="flex items-center gap-2">
+                <Phone size={16} className="text-red-500" />
+                <a 
+                  href="https://wa.me/5553999202033"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-red-500 transition-colors"
+                >
+                  (53) 99920-2033
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail size={16} className="text-red-500" />
+                <Link 
+                  href="/contact"
+                  className="hover:text-red-500 transition-colors"
+                >
+                  vitabarmartin@gmail.com
+                </Link>
+              </p>
+              <p className="flex items-center gap-2">
+                <MapPin size={16} className="text-red-500" />
+                <span>Rua Melvin Jones, 50 - Siderópolis, SC</span>
+              </p>
+            </div>
           </div>
 
-          <div className="flex gap-4 text-lightText">
-            <a
-              href="https://www.instagram.com/martin.vitabar.tattoo/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-zinc-800 hover:bg-red-500 p-2 rounded-full transition-all duration-300 transform hover:scale-110"
-            >
-              <Instagram size={20} />
-            </a>
-            <a
-              href="mailto:contato@martinvitabar.com"
-              className="bg-zinc-800 hover:bg-red-500 p-2 rounded-full transition-all duration-300 transform hover:scale-110"
-            >
-              <Mail size={20} />
-            </a>
-            <a
-              href="https://wa.me/5553999202033"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-zinc-800 hover:bg-red-500 p-2 rounded-full transition-all duration-300 transform hover:scale-110"
-            >
-              <MessageCircle size={20} />
-            </a>
+          {/* Quick Links */}
+          <div>
+            <div className="space-y-2">
+              <Link href="/" className="block hover:text-red-500 transition-colors">
+                Início
+              </Link>
+              <Link href="/gallery" className="block hover:text-red-500 transition-colors">
+                Galeria
+              </Link>
+              <Link href="/services" className="block hover:text-red-500 transition-colors">
+                Serviços
+              </Link>
+              <Link href="/contact" className="block hover:text-red-500 transition-colors">
+                Contato
+              </Link>
+            </div>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/martin.vitabar.tattoo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-red-500 transition-colors"
+              >
+                <Instagram size={24} />
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-zinc-800 text-center text-lightText text-sm">
-          <p>© {new Date().getFullYear()} Martin Vitabar Tattoo. Todos os direitos reservados.</p>
+        <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-sm text-zinc-500">
+          <p>© {new Date().getFullYear()} TOP SECRET TATTOO. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>

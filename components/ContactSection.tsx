@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import ContactForm from "./contact-form";
+import Link from "next/link";
+import MapModal from "./MapModal";
 
 export default function ContactSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMapOpen, setIsMapOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,37 +44,57 @@ export default function ContactSection() {
           >
             <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
             <div className="space-y-6">
-              <div className="flex items-start gap-4 group">
+              {/* Location link stays as anchor for smooth scroll */}
+              <button 
+                onClick={() => setIsMapOpen(true)}
+                className="flex items-start gap-4 group hover:opacity-80 transition-opacity w-full text-left"
+              >
                 <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Localização</h4>
                   <p className="text-lightText">Rua Melvin Jones, 50 - Siderópolis, SC</p>
                 </div>
-              </div>
+              </button>
 
-              <div className="flex items-start gap-4 group">
+              {/* WhatsApp */}
+              <a 
+                href="https://wa.me/5553999202033" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 group hover:opacity-80 transition-opacity"
+              >
                 <Phone className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Telefone</h4>
                   <p className="text-lightText">(53) 99920-2033</p>
                 </div>
-              </div>
+              </a>
 
-              <div className="flex items-start gap-4 group">
+              {/* Email - Link to contact page */}
+              <Link 
+                href="/contact"
+                className="flex items-start gap-4 group hover:opacity-80 transition-opacity"
+              >
                 <Mail className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Email</h4>
                   <p className="text-lightText">vitabarmartin@gmail.com</p>
                 </div>
-              </div>
+              </Link>
 
-              <div className="flex items-start gap-4 group">
+              {/* Instagram */}
+              <a 
+                href="https://www.instagram.com/martin.vitabar.tattoo" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 group hover:opacity-80 transition-opacity"
+              >
                 <Instagram className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Instagram</h4>
                   <p className="text-lightText">@martin.vitabar.tattoo</p>
                 </div>
-              </div>
+              </a>
             </div>
 
             <div className="mt-8 text-lightText">
@@ -96,6 +119,11 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
+
+      <MapModal 
+        isOpen={isMapOpen} 
+        onClose={() => setIsMapOpen(false)} 
+      />
 
       {/* Map Section */}
       <div className="mt-16">

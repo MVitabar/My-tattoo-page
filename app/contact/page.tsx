@@ -4,9 +4,11 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { MapPin, Phone, Mail, Instagram, Clock } from "lucide-react"
 import ContactForm from "@/components/contact-form"
+import MapModal from "@/components/MapModal"
 
 export default function ContatoPage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isMapOpen, setIsMapOpen] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -18,11 +20,12 @@ export default function ContatoPage() {
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1581299894341-367e6517569c?q=80&w=1974&auto=format&fit=crop"
-            alt="Contato"
+            src="/assets/realismo2.jpg"
+            alt="Tatuagem realista - TOP SECRET TATTOO"
             fill
             className="object-cover opacity-50"
             priority
+            quality={100}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
         </div>
@@ -53,12 +56,17 @@ export default function ContatoPage() {
               <h2 className="text-3xl font-bold mb-8">Informações de Contato</h2>
               <div className="space-y-8">
                 <div className="flex items-start gap-4 group">
-                  <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" size={24} />
-                  <div>
-                    <h3 className="font-bold text-xl">Localização</h3>
-                    <p className="text-zinc-300">Siderópolis, Santa Catarina</p>
-                    <p className="text-zinc-400 text-sm italic">Estúdio privado</p>
-                  </div>
+                  <button 
+                    onClick={() => setIsMapOpen(true)}
+                    className="flex items-start gap-4 group hover:text-red-500 transition-colors w-full text-left"
+                  >
+                    <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" size={24} />
+                    <div>
+                      <h3 className="font-bold text-xl">Localização</h3>
+                      <p className="text-zinc-300">Rua Melvin Jones, 50 - Siderópolis, SC</p>
+                      <p className="text-zinc-400 text-sm italic">Clique para ver no mapa</p>
+                    </div>
+                  </button>
                 </div>
 
                 <div className="flex items-start gap-4 group">
@@ -132,6 +140,11 @@ export default function ContatoPage() {
           </div>
         </div>
       </section>
+
+      <MapModal 
+        isOpen={isMapOpen} 
+        onClose={() => setIsMapOpen(false)} 
+      />
 
       {/* Map Section */}
       <section className="py-20 bg-black">
