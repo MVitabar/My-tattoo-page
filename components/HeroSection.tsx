@@ -12,12 +12,12 @@ export default function HeroSection() {
 
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 w-full">
         <Image
           src="/assets/hero-bg.png"
           alt="Arte de tatuagem"
           fill
-          className="object-cover opacity-50"
+          className="object-cover w-full h-full"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>

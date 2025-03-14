@@ -26,8 +26,8 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section id="contato" className="py-20 bg-zinc-900">
-      <div className="container mx-auto px-4">
+    <section id="contato" className="relative w-full py-20 bg-zinc-900 overflow-hidden">
+      <div className="container mx-auto px-4 max-w-full">
         <h2
           className={`text-3xl md:text-4xl font-bold mb-16 text-center text-lightText transition-all duration-700 transform ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -42,7 +42,7 @@ export default function ContactSection() {
               isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
             }`}
           >
-            <h3 className="text-2xl font-bold mb-6">Informações de Contato</h3>
+            <h3 className="text-2xl text-lightText font-bold mb-6">Informações de Contato</h3>
             <div className="space-y-6">
               {/* Location link stays as anchor for smooth scroll */}
               <button 
@@ -51,7 +51,7 @@ export default function ContactSection() {
               >
                 <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
-                  <h4 className="font-bold">Localização</h4>
+                  <h4 className="font-bold text-lightText ">Localização</h4>
                   <p className="text-lightText">Rua Melvin Jones, 50 - Siderópolis, SC</p>
                 </div>
               </button>
@@ -65,7 +65,7 @@ export default function ContactSection() {
               >
                 <Phone className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
-                  <h4 className="font-bold">Telefone</h4>
+                  <h4 className="font-bold text-lightText ">Telefone</h4>
                   <p className="text-lightText">(53) 99920-2033</p>
                 </div>
               </a>
@@ -77,7 +77,7 @@ export default function ContactSection() {
               >
                 <Mail className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
-                  <h4 className="font-bold">Email</h4>
+                  <h4 className="font-bold text-lightText ">Email</h4>
                   <p className="text-lightText">vitabarmartin@gmail.com</p>
                 </div>
               </Link>
@@ -91,14 +91,14 @@ export default function ContactSection() {
               >
                 <Instagram className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
-                  <h4 className="font-bold">Instagram</h4>
+                  <h4 className="font-bold text-lightText ">Instagram</h4>
                   <p className="text-lightText">@martin.vitabar.tattoo</p>
                 </div>
               </a>
             </div>
 
             <div className="mt-8 text-lightText">
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              <h2 className="text-3xl text-lightText md:text-4xl font-bold mb-8 text-center">
                 HORÁRIO DE <span className="text-red-500">ATENDIMENTO</span>
               </h2>
               <div className="space-y-2 p-4">

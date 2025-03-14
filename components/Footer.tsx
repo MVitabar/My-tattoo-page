@@ -88,7 +88,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-sm text-zinc-500">
+        <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-sm text-lightText">
           <p>© {new Date().getFullYear()} TOP SECRET TATTOO. Todos os direitos reservados.</p>
         </div>
       </div>
