@@ -30,7 +30,6 @@ export default function Home() {
       <ServicesSection />
       <FeedbackSection />
       <ContactSection />
-      <Footer />
     </main>
   );
 }
