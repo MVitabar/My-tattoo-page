@@ -23,24 +23,24 @@ export default function ServicesSection() {
 
   const services = [
     {
-      title: "Designs Personalizados",
-      description: "Criações únicas adaptadas às suas ideias e preferências.",
-      icon: "https://images.unsplash.com/photo-1581299894341-367e6517569c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    },
-    {
       title: "Realismo",
-      description: "Tatuagens com um nível de detalhe e precisão fotográfica.",
-      icon: "https://images.unsplash.com/photo-1612459284970-e8f84c153d61?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      description: "Especializado em criar tatuagens com um nível de detalhe e precisão fotográfica, perfeitas para retratos e elementos da natureza.",
+      icon: "/assets/realismo1.jpg",
     },
     {
-      title: "Blackwork",
-      description: "Designs impactantes utilizando apenas tinta preta.",
-      icon: "https://images.unsplash.com/photo-1542727365-19732a80dcfd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Preto e Cinza",
+      description: "Designs impactantes utilizando variações de preto e cinza, criando profundidade e contraste únicos.",
+      icon: "/assets/tattoo1.jpg",
     },
     {
-      title: "Neotradicional",
-      description: "Uma interpretação moderna do estilo tradicional com cores vibrantes.",
-      icon: "https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      title: "Colorido",
+      description: "Tatuagens vibrantes e expressivas com uma paleta de cores rica e diversificada.",
+      icon: "/assets/colorido2.jpg",
+    },
+    {
+      title: "Cover-ups",
+      description: "Transformação de tatuagens antigas ou indesejadas em novas obras de arte.",
+      icon: "/assets/realismo4.jpg",
     },
   ];
 
@@ -66,7 +66,7 @@ export default function ServicesSection() {
             >
               <div className="w-16 h-16 mb-4 mx-auto overflow-hidden rounded-full">
                 <Image
-                  src={service.icon || "/placeholder.svg"}
+                  src={service.icon}
                   alt={service.title}
                   width={64}
                   height={64}

@@ -45,8 +45,7 @@ export default function ContactSection() {
                 <MapPin className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Localização</h4>
-<p className="text-lightText">Rua Principal 123, Cidade</p>
-
+                  <p className="text-lightText">Rua Melvin Jones, 50 - Siderópolis, SC</p>
                 </div>
               </div>
 
@@ -54,8 +53,7 @@ export default function ContactSection() {
                 <Phone className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Telefone</h4>
-<p className="text-lightText">+123 456 789</p>
-
+                  <p className="text-lightText">(53) 99920-2033</p>
                 </div>
               </div>
 
@@ -63,8 +61,7 @@ export default function ContactSection() {
                 <Mail className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Email</h4>
-<p className="text-lightText">contato@martinvitabar.com</p>
-
+                  <p className="text-lightText">vitabarmartin@gmail.com</p>
                 </div>
               </div>
 
@@ -72,27 +69,20 @@ export default function ContactSection() {
                 <Instagram className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold">Instagram</h4>
-<p className="text-lightText">@martin.vitabar.tattoo</p>
-
+                  <p className="text-lightText">@martin.vitabar.tattoo</p>
                 </div>
               </div>
             </div>
 
             <div className="mt-8 text-lightText">
-              <h3 className="text-2xl font-bold mb-4">Horário</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between hover:bg-zinc-800 p-2 rounded transition-colors">
-                  <span>Segunda - Sexta</span>
-                  <span>10:00 - 20:00</span>
-                </div>
-                <div className="flex justify-between hover:bg-zinc-800 p-2 rounded transition-colors">
-                  <span>Sábado</span>
-                  <span>11:00 - 18:00</span>
-                </div>
-                <div className="flex justify-between hover:bg-zinc-800 p-2 rounded transition-colors">
-                  <span>Domingo</span>
-                  <span>Fechado</span>
-                </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+                HORÁRIO DE <span className="text-red-500">ATENDIMENTO</span>
+              </h2>
+              <div className="space-y-2 p-4">
+                <p className="text-lightText text-lg md:text-xl leading-relaxed text-center">
+                  Trabalhamos exclusivamente com agendamento prévio para garantir um atendimento personalizado 
+                  e dedicado a cada cliente.
+                </p>
               </div>
             </div>
           </div>
@@ -105,6 +95,26 @@ export default function ContactSection() {
             <ContactForm />
           </div>
         </div>
+      </div>
+
+      {/* Map Section */}
+      <div className="mt-16">
+        <h2 className="text-3xl text-lightText font-bold mb-8 text-center">
+          COMO <span className="text-red-500">CHEGAR</span>
+        </h2>
+        <div className="relative w-full h-[450px] rounded-lg overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.1238206612998!2d-49.42681252770116!3d-28.59606201187244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95219c3c695c9ff1%3A0x48b6f889aebf7cb8!2sR.%20Melvin%20Jones%2C%2050%2C%20Sider%C3%B3polis%20-%20SC%2C%2088860-000!5e0!3m2!1ses-419!2sbr!4v1741957465065!5m2!1ses-419!2sbr"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            allowFullScreen={true}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="rounded-lg"
+          />
+        </div>
+        <p className="text-center text-zinc-300 mt-4">Rua Melvin Jones, 50 - Siderópolis, SC</p>
       </div>
     </section>
   );

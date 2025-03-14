@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Instagram, Mail, Phone, MapPin, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,47 +48,47 @@ export default function Header() {
         </button>
 
         <nav className="hidden md:flex gap-8">
-          <a href="/" className="hover:text-red-500 text-lightText transition-colors relative group">
+          <Link href="/" className="hover:text-red-500 text-lightText transition-colors relative group">
             Início
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 text-lightText transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="/About" className="hover:text-red-500 text-lightText transition-colors relative group">
+          </Link>
+          <Link href="/about" className="hover:text-red-500 text-lightText transition-colors relative group">
             Sobre Mim
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 text-lightText transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="/Gallery" className="hover:text-red-500 text-lightText transition-colors relative group">
+          </Link>
+          <Link href="/gallery" className="hover:text-red-500 text-lightText transition-colors relative group">
             Galeria
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 text-lightText transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="/Services" className="hover:text-red-500 text-lightText transition-colors relative group">
+          </Link>
+          <Link href="/services" className="hover:text-red-500 text-lightText transition-colors relative group">
             Serviços
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 text-lightText transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="/Contact" className="hover:text-red-500 text-lightText transition-colors relative group">
+          </Link>
+          <Link href="/contact" className="hover:text-red-500 text-lightText transition-colors relative group">
             Contato
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 text-lightText transition-all duration-300 group-hover:w-full"></span>
-          </a>
+          </Link>
         </nav>
       </div>
 
       {isMenuOpen && (
         <div className="md:hidden bg-zinc-900 py-4 animate-fadeIn">
           <nav className="flex flex-col items-center gap-4">
-            <a href="/" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
               Início
-            </a>
-            <a href="/About" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
+            </Link>
+            <Link href="/about" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
               Sobre Mim
-            </a>
-            <a href="/Gallery" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
+            </Link>
+            <Link href="/gallery" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
               Galeria
-            </a>
-            <a href="/Services" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
+            </Link>
+            <Link href="/services" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
               Serviços
-            </a>
-            <a href="/Contact" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
+            </Link>
+            <Link href="/contact" className="hover:text-red-500 text-lightText transition-colors" onClick={() => setIsMenuOpen(false)}>
               Contato
-            </a>
+            </Link>
           </nav>
         </div>
       )}

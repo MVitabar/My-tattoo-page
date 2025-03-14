@@ -18,8 +18,7 @@ export default function ContactForm() {
     telefone: "",
     data: "",
     hora: "",
-    estilo: "",
-    descricao: "",
+    descricao: "", // Removed estilo from initial state
   })
 
   // Update the state type
@@ -112,8 +111,7 @@ export default function ContactForm() {
           telefone: "",
           data: "",
           hora: "",
-          estilo: "",
-          descricao: "",
+          descricao: "", // Removed estilo from reset
         });
         setSelectedFiles([]);
       }, 3000);
@@ -264,30 +262,6 @@ export default function ContactForm() {
                 />
               </div>
             </div>
-          </div>
-
-          <div>
-            <label htmlFor="estilo" className="block text-sm font-medium mb-1">
-              Estilo de tatuagem *
-            </label>
-            <select
-              id="estilo"
-              name="estilo"
-              value={formData.estilo}
-              onChange={handleChange}
-              onFocus={() => handleFocus("estilo")}
-              onBlur={handleBlur}
-              required
-              className={`w-full px-4 py-2 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ${
-                focusedField === "estilo" ? "border-red-500 shadow-lg shadow-red-500/20" : ""
-              }`}
-            >
-              <option value="">Selecione um estilo</option>
-              <option value="realismo">Realismo</option>
-              <option value="blackwork">Blackwork</option>
-              <option value="neotradicional">Neotradicional</option>
-              <option value="outro">Outro</option>
-            </select>
           </div>
 
           <div>

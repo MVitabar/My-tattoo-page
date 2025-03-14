@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link"; // Add this import
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 
@@ -35,15 +36,15 @@ export default function HeroSection() {
             Designs únicos e personalizados que contam sua história
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-red-500 hover:bg-red-600 text-white">
-              Agende sua sessão
+            <Button asChild size="lg" className="bg-red-500 hover:bg-red-600 text-white">
+              <Link href="/contact">Agende sua sessão</Link>
             </Button>
             <Button
+              asChild
               size="lg"
-              variant="secondary"
               className="border-2 border-white hover:text-white hover:border-red-800 hover:bg-red-800 transition-colors"
             >
-              Ver portfólio
+              <Link href="/gallery">Ver portfólio</Link>
             </Button>
           </div>
         </div>
