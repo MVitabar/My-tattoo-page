@@ -2,10 +2,11 @@
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { pageview } from '@/lib/analytics';
 
-export default function GoogleAnalytics() {
+// Componente interno que usa useSearchParams
+function GoogleAnalyticsInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -25,6 +26,10 @@ export default function GoogleAnalytics() {
     }
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+export default function GoogleAnalytics() {
   // No renderizar nada si no estamos en producción o falta el ID de medición
   if (process.env.NEXT_PUBLIC_VERCEL_ENV !== 'production' || !process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID) {
     return null;
@@ -44,12 +49,13 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
-            });
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
           `,
         }}
       />
+      <Suspense fallback={null}>
+        <GoogleAnalyticsInner />
+      </Suspense>
     </>
   );
 }

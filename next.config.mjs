@@ -97,16 +97,20 @@ const nextConfig = {
       // Agrega reescrituras de URL según sea necesario
     ];
   },
-  // Configuración de caché
-  cache: {
-    // Configuración de caché para archivos estáticos
-    static: {
-      // 1 año de caché para archivos estáticos
-      maxAge: 31536000,
-      // No almacenar en caché en modo desarrollo
-      cacheControl: process.env.NODE_ENV === 'development' ? 'no-cache' : 'public, max-age=31536000, immutable',
-    },
-  },
+  // Configuración de caché para producción
+  ...(process.env.NODE_ENV === 'production' && {
+    headers: async () => [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ],
+  }),
   // Configuración de compresión
   compress: true,
   // Configuración de seguridad
@@ -116,7 +120,7 @@ const nextConfig = {
   i18n: {
     locales: ['pt-BR'],
     defaultLocale: 'pt-BR',
-    localeDetection: true,
+    localeDetection: false,
   },
 }
 
