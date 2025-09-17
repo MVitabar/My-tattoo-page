@@ -36,7 +36,7 @@ export default function HeroSection() {
             Designs únicos e personalizados que contam sua história
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="bg-red-500 hover:bg-red-600 text-white">
+            <Button asChild size="lg" className="bg-blue-500 hover:bg-blue-600 text-white">
               <Link href="/contact">Agende sua sessão</Link>
             </Button>
             <Button
