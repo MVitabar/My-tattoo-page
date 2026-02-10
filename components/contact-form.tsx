@@ -223,12 +223,16 @@ export default function ContactForm() {
                   onFocus={() => handleFocus("data")}
                   onBlur={handleBlur}
                   required
-                  className={`w-full px-4 py-2 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ${
+                  className={`w-full px-3 py-2 pr-10 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 text-sm sm:text-base ${
                     focusedField === "data" ? "border-red-500 shadow-lg shadow-red-500/20" : ""
                   }`}
+                  style={{
+                    WebkitAppearance: 'none',
+                    MozAppearance: 'textfield',
+                  }}
                 />
                 <Calendar
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors duration-300 ${
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors duration-300 pointer-events-none ${
                     focusedField === "data" ? "text-red-500" : "text-zinc-400"
                   }`}
                   size={18}
@@ -250,12 +254,17 @@ export default function ContactForm() {
                   onFocus={() => handleFocus("hora")}
                   onBlur={handleBlur}
                   required
-                  className={`w-full px-4 py-2 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 ${
+                  className={`w-full px-3 py-2 pr-10 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 text-sm sm:text-base ${
                     focusedField === "hora" ? "border-red-500 shadow-lg shadow-red-500/20" : ""
                   }`}
+                  style={{
+                    // Mejorar compatibilidad con móviles
+                    WebkitAppearance: 'none',
+                    MozAppearance: 'textfield',
+                  }}
                 />
                 <Clock
-                  className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors duration-300 ${
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 transition-colors duration-300 pointer-events-none ${
                     focusedField === "hora" ? "text-red-500" : "text-zinc-400"
                   }`}
                   size={18}
