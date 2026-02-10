@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export default function WhatsAppButton() {
-  const phoneNumber = '5553999202033';
+  const phoneNumber = '5548996209954';
   const message = 'Olá! Gostaria de agendar uma sessão de tatuagem.';
   
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;

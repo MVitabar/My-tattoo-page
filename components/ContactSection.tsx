@@ -58,7 +58,7 @@ export default function ContactSection() {
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/5553999202033" 
+                href="https://wa.me/5548996209954" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 group hover:opacity-80 transition-opacity"
@@ -66,7 +66,7 @@ export default function ContactSection() {
                 <Phone className="text-red-500 mt-1 group-hover:animate-bounce" />
                 <div>
                   <h4 className="font-bold text-lightText ">Telefone</h4>
-                  <p className="text-lightText">(53) 99920-2033</p>
+                  <p className="text-lightText">(48) 99620-9954</p>
                 </div>
               </a>
 

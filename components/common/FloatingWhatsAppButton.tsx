@@ -21,7 +21,7 @@ type FloatingWhatsAppButtonProps = {
 };
 
 export function FloatingWhatsAppButton({
-  phoneNumber = '5553999202033',
+  phoneNumber = '5548996209954',
   message = 'Olá! Gostaria de agendar uma sessão de tatuagem.',
   className,
   showLabel = true,

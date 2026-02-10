@@ -98,7 +98,7 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Erro ao enviar formulário');
+        throw new Error(data.error || data.details || 'Erro ao enviar formulário');
       }
 
       setSubmitSuccess(true);

@@ -71,7 +71,7 @@ export default function ContatoPage() {
 
                 <div className="flex items-start gap-4 group">
                   <a
-                    href="https://wa.me/5553999202033"
+                    href="https://wa.me/5548996209954"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-4 group hover:text-red-500 transition-colors"
@@ -79,7 +79,7 @@ export default function ContatoPage() {
                     <Phone className="text-red-500 mt-1 group-hover:animate-bounce" size={24} />
                     <div>
                       <h3 className="font-bold text-xl">WhatsApp</h3>
-                      <p className="text-zinc-300">+55 53 99920-2033</p>
+                      <p className="text-zinc-300">+55 48 99620-9954</p>
                       <p className="text-zinc-400 text-sm">Clique para iniciar uma conversa</p>
                     </div>
                   </a>

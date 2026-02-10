@@ -5,14 +5,44 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData();
 
+    // Verify environment variables are loaded
+    if (!process.env.GMAIL_USER || !process.env.GMAIL_PASS) {
+      console.error('Environment variables not loaded:', {
+        GMAIL_USER: !!process.env.GMAIL_USER,
+        GMAIL_PASS: !!process.env.GMAIL_PASS
+      });
+      return NextResponse.json(
+        { error: 'Configuração de email não encontrada no servidor' },
+        { status: 500 }
+      );
+    }
+
+    console.log('Environment variables loaded successfully');
+
     // Configure el transportador de correo
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'vitabarmartin@gmail.com',
-        pass: 'eevy hpyh koeo pyqm', // Reemplaza con tu contraseña de aplicación
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS,
       },
+      secure: false,
+      tls: {
+        rejectUnauthorized: false
+      }
     });
+
+    // Test transporter connection
+    try {
+      await transporter.verify();
+      console.log('Transporter verified successfully');
+    } catch (verifyError) {
+      console.error('Transporter verification failed:', verifyError);
+      return NextResponse.json(
+        { error: 'Falha na autenticação do email', details: verifyError instanceof Error ? verifyError.message : 'Unknown error' },
+        { status: 500 }
+      );
+    }
 
     // Prepara los archivos adjuntos
     const attachments = [];
@@ -39,7 +69,6 @@ export async function POST(req: Request) {
         <p><strong>Telefone:</strong> ${formData.get('telefone')}</p>
         <p><strong>Data Preferida:</strong> ${formData.get('data')}</p>
         <p><strong>Hora Preferida:</strong> ${formData.get('hora')}</p>
-        <p><strong>Estilo:</strong> ${formData.get('estilo')}</p>
         <p><strong>Descrição:</strong> ${formData.get('descricao')}</p>
       `,
       attachments,
