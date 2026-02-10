@@ -287,7 +287,7 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/line-clamp'),
+    // require('@tailwindcss/line-clamp'), // Removed: included by default in v3.3+
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-animate'),
     
@@ -321,7 +321,7 @@ module.exports = {
         },
         
         // Utilidades de selección de texto
-        '.selection\:bg-brand-selection::selection': {
+        '.selection-brand::selection': {
           backgroundColor: 'var(--brand-selection-bg)',
           color: 'var(--brand-selection-color)',
         },
@@ -343,7 +343,7 @@ module.exports = {
         },
         
         // Utilidades de aspecto
-        '.aspect-16\:9': {
+        '.aspect-16\\/9': {
           paddingBottom: '56.25%',
         },
         
