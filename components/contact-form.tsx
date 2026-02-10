@@ -254,7 +254,7 @@ export default function ContactForm() {
                   onFocus={() => handleFocus("hora")}
                   onBlur={handleBlur}
                   required
-                  className={`w-full px-3 py-2 pr-10 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 text-sm sm:text-base ${
+                  className={`w-full px-3 py-2 pr-10 bg-zinc-700 border border-zinc-600 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 transition-all duration-300 text-sm sm:text-base mobile-time-picker ${
                     focusedField === "hora" ? "border-red-500 shadow-lg shadow-red-500/20" : ""
                   }`}
                   style={{
