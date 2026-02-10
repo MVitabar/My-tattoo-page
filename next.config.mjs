@@ -45,19 +45,29 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Eliminado: eslint - ya no es compatible con Next.js 16
   typescript: {
     ignoreBuildErrors: true,
   },
-  // Configuración de imágenes
+  // Configuración de imágenes - actualizada a remotePatterns
   images: {
-    domains: [
-      'images.unsplash.com',
-      'plus.unsplash.com',
-      'source.unsplash.com',
-      'my-tattoo-page-one.vercel.app'
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'plus.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'my-tattoo-page-one.vercel.app',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
@@ -116,12 +126,8 @@ const nextConfig = {
   // Configuración de seguridad
   poweredByHeader: false,
   reactStrictMode: true,
-  // Configuración de internacionalización
-  i18n: {
-    locales: ['pt-BR'],
-    defaultLocale: 'pt-BR',
-    localeDetection: false,
-  },
+  // Eliminado: i18n - no es compatible con App Router en Next.js 16
+  // Para internacionalización, usa: https://nextjs.org/docs/app/building-your-application/routing/internationalization
 }
 
 mergeConfig(nextConfig, userConfig)
